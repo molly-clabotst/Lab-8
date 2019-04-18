@@ -59,8 +59,8 @@ export default {
     }
   },
   methods:{
-      addToList(anser, id){
-          this.uAns = anser;
+      addToList(answer, id){
+          this.uAns = answer;
           this.questions[id].uAns.push(this.uAns);
       }
   }
