@@ -29,7 +29,7 @@ export default {
   },
   data(){
     return{
-        answer: '',
+        answer: [],
       questions:[
         {
           id: 0,
@@ -59,8 +59,8 @@ export default {
     }
   },
   methods:{
-      addToList(answer, id){
-          this.uAns = answer;
+      addToList(ans, id){
+          this.uAns = ans;
           this.questions[id].uAns.push(this.uAns);
       }
   }

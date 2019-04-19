@@ -5,8 +5,8 @@
         <p>
             {{question.question}}
         </p>
-        <input type="radio" name="answer1" v-model="chan" v-on:change="this.$emit('answer', chan, questions.id)">{{question.answer1}}
-        <input type="radio" name="answer2" v-model="chan" v-on:change="this.$emit('answer', chan, questions.id)">{{question.answer2}}
+        <input type="radio" v-model="chan" v-bind:value="question.answer1" v-on:change="this.$emit('answer', chan, questions.id)">{{question.answer1}}
+        <input type="radio" v-model="chan" v-bind:value="question.answer2" v-on:change="this.$emit('answer', chan, questions.id)">{{question.answer2}}
 
     </div>
 
