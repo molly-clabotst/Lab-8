@@ -1,12 +1,33 @@
 <template>
     <div class="hello">
-        <h1>"Would you rather..."</h1>
 
         <p>
-            {{question.question}}
+            {{question}}
         </p>
-        <input type="radio" v-model="chan" v-bind:value="question.answer1" v-on:change="this.$emit('answer', chan, questions.id)">{{question.answer1}}
-        <input type="radio" v-model="chan" v-bind:value="question.answer2" v-on:change="this.$emit('answer', chan, questions.id)">{{question.answer2}}
+        <div v-if="id===0">
+            <label >
+                <input  type="radio" name="doot" v-bind:value="answer1" v-on:change="chosen(answer1,id)">{{answer1}}
+            </label>
+            <label>
+                <input type="radio" name="doot" v-bind:value="answer2" v-on:change="chosen(answer2,id)">{{answer2}}
+            </label>
+        </div>
+        <div v-if="id===1">
+            <label >
+                <input  type="radio" name="nDooDooDooDoooo" v-bind:value="answer1" v-on:change="chosen(answer1,id)">{{answer1}}
+            </label>
+            <label>
+                <input type="radio" name="nDooDooDooDoooo" v-bind:value="answer2" v-on:change="chosen(answer2,id)">{{answer2}}
+            </label>
+        </div>
+        <div v-if="id===2">
+            <label >
+                <input  type="radio" name="aaAAAaaaahhhhh" v-bind:value="answer1" v-on:change="chosen(answer1,id)">{{answer1}}
+            </label>
+            <label>
+                <input type="radio" name="aaAAAaaaahhhhh" v-bind:value="answer2" v-on:change="chosen(answer2,id)">{{answer2}}
+            </label>
+        </div>
 
     </div>
 
@@ -15,23 +36,26 @@
 </template>
 
 <script>
-
     export default {
         name: "Question",
         props:{
-            question: Object
+            question: String,
+            answer1: String,
+            answer2: String,
+            id: Number,
         },
         data(){
             return{
-                chan: ''
+
             }
         },
         methods:{
-
+            chosen(answer, id){
+                this.$emit('answer',answer, id)
+            }
         }
     }
 </script>
 
 <style scoped>
-
 </style>
